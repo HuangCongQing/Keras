@@ -14,7 +14,7 @@
 
 参数说明：
 ```
-units: 全连接层输出的维度，即下一层神经元的个数
+units: 全连接层输出的维度，即下一层神经元的个数# Input_dim是unit参数
 
 activation：激活函数，默认使用Relu
 
@@ -178,7 +178,7 @@ metric：模型的评价指标，如：’accuracy‘等
 
 
 **（2）fit(x=None,y=None,batch_size=None,epochs=1,verbose=1,validation_split=0.0)**
-
+训练
 参数说明：
 ```
 x：输入数据。

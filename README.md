@@ -19,9 +19,13 @@ Keras学习
 ### Tutorials
 
 * 莫烦keras系列视频教程：https://morvanzhou.github.io/tutorials/machine-learning/keras/
-    * 
-    * 
-    * 
+    * [00Keras概述.md](00Keras概述.md)
+    * [01Regressor 回归.ipynb](01Regressor 回归.ipynb)
+    * [02classification.ipynb](02classification.ipynb)
+    * [03CNN卷积神经网络.ipynb](03CNN卷积神经网络.ipynb)
+    * [04RNN_classifer.ipynb](04RNN_classifer.ipynb)
+    * [05RNN_LSTM_Regressor.ipynb](05RNN_LSTM_Regressor.ipynb)
+    * [06Auto_encoder.ipynb](06Auto_encoder.ipynb)
 
 
 

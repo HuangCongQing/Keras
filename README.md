@@ -6,11 +6,13 @@ Keras学习
 * 查看github上的jupyter notebook:https://nbviewer.jupyter.org/
 
 ### Keras文档和资源
-Github: https://github.com/keras-team/keras
-Keras 英文文档：https://keras.io/
-Keras 中文文档：https://keras-cn.readthedocs.io/en/latest/
-Keras 资源：https://github.com/fchollet/keras-resources
-Keras 博客：https://blog.keras.io/index.html
+
+* Github: https://github.com/keras-team/keras
+* Keras 英文文档：https://keras.io/
+* Keras 中文文档：https://keras-cn.readthedocs.io/en/latest/
+* Keras 资源：https://github.com/fchollet/keras-resources
+* Keras 博客：https://blog.keras.io/index.html
+
 转载自：https://zhuanlan.zhihu.com/p/23748037
 
 

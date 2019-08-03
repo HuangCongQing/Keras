@@ -169,9 +169,9 @@ Keras中设定了两类深度学习的模型，
 **（1）compile(optimizer, loss, metrics=None)**
 参数说明：
 ```
-optimizer：优化器，如：’SGD‘，’Adam‘等
+optimizer：优化器，如：’sgd(随机梯度下降)，’Adam‘等
 
-loss：定义模型的损失函数，如：’mse’，’mae‘等
+loss：定义模型的损失函数，如：’mse’，’mae‘等( mse:mean squared error 均方误差)
 
 metric：模型的评价指标，如：’accuracy‘等
 ```

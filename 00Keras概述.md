@@ -7,6 +7,175 @@
 ## 概述
 >Keras是Python中以CNTK、Tensorflow或者Theano为计算后台的一个深度学习建模环境。其中最主要的优点就是高度集成模块化。
 
+Sequential 序贯模型
+
+```
+from keras.models import Sequential
+from keras.layers import Dense
+
+model = Sequential() # Sequential()代表类的初始化；
+#添加层model.add
+model.add(Dense(64, activation='relu & softmax'', input_dim=100))
+
+# 编译层model.compile
+model.compile(loss='categorical_crossentropy',
+              optimizer='sgd',
+              metrics=['accuracy'])
+
+# model.fit模型参数设置 x_train 和 y_train 是 Numpy 数组 -- 就像在 Scikit-Learn API 中一样。
+model.fit(x_train | data, y_train | labels, epochs=5, batch_size=32)
+
+# 评估和预测model.evaluate && model.predict
+loss_and_metrics = model.evaluate(x_test, y_test, batch_size=128)
+classes = model.predict(x_test, batch_size=128)
+
+
+```
+
+1. model.add，添加层；
+2. model.compile,模型训练的BP模式设置；
+3. model.fit，模型训练参数设置 + 训练；
+4. 模型评估
+5. 模型预测
+
+
+### 1. model.add，添加层
+```
+model.add(Dense(64, activation='relu & softmax'', input_dim=100))
+
+model.add(Conv2D(32, (1, 3), strides=(1, 1), padding='same',
+                 activation=activ, input_shape=(1, 1, 30967)))
+model.add(Conv2D(32, (1, 3), strides=(1, 1), padding='same', activation=activ))
+# model.add(MaxPooling2D(pool_size=(1, 2)))
+
+
+model.add(Dropout(.5))
+
+model.add(Flatten())
+```
+
+
+
+
+
+
+### 2. model.compile,模型训练的BP模式设置；
+
+```
+optimizer = Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0)
+# 训练模式
+model.compile(optimizer=optimizer,
+              loss='categorical_crossentropy', metrics=['accuracy'])
+//
+model.compile(loss='categorical_crossentropy',
+              optimizer='sgd',
+              metrics=['accuracy'])
+
+```
+
+
+
+
+
+
+
+
+### 3. model.fit，模型训练参数设置 + 训练；
+
+# model.fit模型参数设置 x_train 和 y_train 是 Numpy 数组 -- 就像在 Scikit-Learn API 中一样。
+model.fit(x_train | data, y_train | labels, epochs=5, batch_size=32)
+
+
+
+
+
+
+
+
+
+### 4. 模型评估
+
+loss_and_metrics = model.evaluate(x_test, y_test, batch_size=128)
+
+
+
+
+
+
+
+
+
+### 5. 模型预测
+
+classes = model.predict(x_test, batch_size=128)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------
 
 ## 1. 核心层
 

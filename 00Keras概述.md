@@ -8,6 +8,7 @@
 >Keras是Python中以CNTK、Tensorflow或者Theano为计算后台的一个深度学习建模环境。其中最主要的优点就是高度集成模块化。
 
 Sequential 序贯模型
+https://keras.io/zh/getting-started/sequential-model-guide/
 
 ```
 from keras.models import Sequential
@@ -30,27 +31,59 @@ loss_and_metrics = model.evaluate(x_test, y_test, batch_size=128)
 classes = model.predict(x_test, batch_size=128)
 
 
-```
+-----------
+
+### 五部分
 
 1. model.add，添加层；
-2. model.compile,模型训练的BP模式设置；
-3. model.fit，模型训练参数设置 + 训练；
-4. 模型评估
-5. 模型预测
+2. model.compile,模型训练的BP模式设置；optimizer, loss, metrics=[‘accuracy’]
+3. model.fit，模型训练参数设置 + 训练；x_train | data, y_train | labels, epochs=5, batch_size=32
+4. 模型评估. loss_and_metrics = model.evaluate(x_test, y_test, batch_size=128)
+5. 模型预测. classes = model.predict(x_test, batch_size=128)
 
 
 ### 1. model.add，添加层
+
+
+
 ```
-model.add(Dense(64, activation='relu & softmax'', input_dim=100))
+# Dense(64) 是一个具有 64 个隐藏神经元的全连接层。
+# 在第一层必须指定所期望的输入数据尺寸：
+# 在这里，input_dim是一个 100 维的向量。
+model.add(Dense(64, activation='relu & softmax'', input_dim=100)) 等价于model.add(Dense(32, input_shape=(100,)))
+```
 
+Dense 3个参数 代表全连接层，此时有32个全连接层，最后接激活函数relu & softmax，输入的是100维度
+
+如果你同时将 batch_size=32 和 input_shape=(6, 8) 传递给一个层，那么每一批输入的尺寸就为 (32，6，8)。
+
+
+```
+# 输入: 3 通道 100x100 像素图像 -> (100, 100, 3) 张量。
+# 使用 32 个大小为 1x3 的卷积滤波器。卷积核的数目（即输出的维度），strides步长
 model.add(Conv2D(32, (1, 3), strides=(1, 1), padding='same',
-                 activation=activ, input_shape=(1, 1, 30967)))
+                 activation=activ, input_shape=(100, 100, 3) && (1, 1, 30967){一行30967个特征}))
 model.add(Conv2D(32, (1, 3), strides=(1, 1), padding='same', activation=activ))
-# model.add(MaxPooling2D(pool_size=(1, 2)))
+model.add(MaxPooling2D(pool_size=(1, 2)))
+```
+参数说明：
+卷积核的数目（即输出的维度）
 
+* strides：单个整数或由两个整数构成的list/tuple，为卷积的步长。
+
+* padding：补0策略，为“valid”,“same”。“valid”代表只进行有效的卷积，即对边界数据不处理。“same”代表保留边界处的卷积结果，通常会导致输出shape与输入shape相同。
+
+
+
+
+
+```
 
 model.add(Dropout(.5))
 
+```
+
+```
 model.add(Flatten())
 ```
 
@@ -59,16 +92,16 @@ model.add(Flatten())
 
 
 
-### 2. model.compile,模型训练的BP模式设置；
+### 2. model.compile,模型训练的BP模式设置；3个参数
 
 ```
 optimizer = Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0)
 # 训练模式
 model.compile(optimizer=optimizer,
               loss='categorical_crossentropy', metrics=['accuracy'])
-//
-model.compile(loss='categorical_crossentropy',
-              optimizer='sgd',
+# 另一种
+model.compile(optimizer='sgd && rmsprop',
+              loss='mse(均方差) && categorical_crossentropy（多分类） && binary_crossentropy(二分类)'
               metrics=['accuracy'])
 
 ```
@@ -83,9 +116,10 @@ model.compile(loss='categorical_crossentropy',
 ### 3. model.fit，模型训练参数设置 + 训练；
 
 # model.fit模型参数设置 x_train 和 y_train 是 Numpy 数组 -- 就像在 Scikit-Learn API 中一样。
+```
 model.fit(x_train | data, y_train | labels, epochs=5, batch_size=32)
-
-
+```
+以 32 个样本为一个 batch 进行迭代
 
 
 

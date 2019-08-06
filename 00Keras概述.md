@@ -49,7 +49,7 @@ classes = model.predict(x_test, batch_size=128)
 ```
 # Dense(64) 是一个具有 64 个隐藏神经元的全连接层。
 # 在第一层必须指定所期望的输入数据尺寸：
-# 在这里，input_dim是一个 100 维的向量。
+# 在这里，input_dim是一个 100 维的向量。当使用该层作为模型第一层时，必须提供 input_shape 参数 
 model.add(Dense(64, activation='relu & softmax'', input_dim=100)) 等价于model.add(Dense(32, input_shape=(100,)))
 ```
 
@@ -115,8 +115,9 @@ model.compile(optimizer='sgd && rmsprop',
 
 ### 3. model.fit，模型训练参数设置 + 训练；
 
-# model.fit模型参数设置 x_train 和 y_train 是 Numpy 数组 -- 就像在 Scikit-Learn API 中一样。
+
 ```
+# model.fit模型参数设置 x_train 和 y_train 是 Numpy 数组 -- 就像在 Scikit-Learn API 中一样。
 model.fit(x_train | data, y_train | labels, epochs=5, batch_size=32)
 ```
 以 32 个样本为一个 batch 进行迭代

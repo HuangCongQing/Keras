@@ -2,7 +2,7 @@
 Keras学习
 
 * 中文文档：http://keras-cn.readthedocs.io/en/latest/
-* 官方文档：https://keras.io/
+* 官方文档：https://keras.io/zh
 
 高级的神经网络的包，兼容tensorflow，theano，决定底层backend是由tensorflow，theano搭建神经网络。新的版本中是默认tensorflow，
 

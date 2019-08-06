@@ -1,9 +1,15 @@
 # Keras
 Keras学习
 
+* 中文文档：http://keras-cn.readthedocs.io/en/latest/
+* 官方文档：https://keras.io/
+
 高级的神经网络的包，兼容tensorflow，theano，决定底层backend是由tensorflow，theano搭建神经网络。新的版本中是默认tensorflow，
 
 * 查看github上的jupyter notebook:https://nbviewer.jupyter.org/
+
+* Keras系列文档（未看，觉得挺好）：https://blog.csdn.net/sinat_26917383/article/details/72857454
+
 
 ### Keras文档和资源
 
